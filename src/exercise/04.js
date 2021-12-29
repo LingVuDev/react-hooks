@@ -37,7 +37,6 @@ function Board({ squares, status, hasWinner, onClick }) {
 }
 
 function Game() {
-    // 🐨 squares is the state for this component. Add useState for squares
   const [squares, setSquares] = useLocalStorageState('squares', Array(9).fill(null));
   const [history, setHistory] = useState([]);
   const [currentStep, setCurrentStep] = useState({ stepIndex: history.length, squares });
@@ -93,7 +92,6 @@ function Game() {
   )
 }
 
-// eslint-disable-next-line no-unused-vars
 function calculateStatus(winner, squares, nextValue) {
   return winner
     ? `Winner: ${winner}`
@@ -102,12 +100,10 @@ function calculateStatus(winner, squares, nextValue) {
     : `Next player: ${nextValue}`
 }
 
-// eslint-disable-next-line no-unused-vars
 function calculateNextValue(squares) {
   return squares.filter(Boolean).length % 2 === 0 ? 'X' : 'O'
 }
 
-// eslint-disable-next-line no-unused-vars
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
